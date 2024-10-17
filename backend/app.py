@@ -13,10 +13,10 @@ app = FastAPI()
 
 # Configure logging to a file
 logging.basicConfig(
-    filename='app.log',
-    filemode='a',  # Append mode
+    filename="app.log",
+    filemode="a",  # Append mode
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
 logger = logging.getLogger(__name__)
@@ -29,6 +29,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
@@ -46,10 +47,12 @@ async def predict(inputs: InputModel):
     except Exception as e:
         raise HTTPException(status_code=422, detail=str(e))
 
+
 @app.get("/data")
 async def data():
-    return FileResponse("./models/dataset.csv", media_type='text/csv', filename="data.csv")
-
+    return FileResponse(
+        "./models/dataset.csv", media_type="text/csv", filename="data.csv"
+    )
 
 
 if __name__ == "__main__":

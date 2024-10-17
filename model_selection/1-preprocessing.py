@@ -7,20 +7,24 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # List of dataset files (relative paths)
 file_paths = [
-    os.path.join(script_dir, '..', 'datasets', '1-china.arff'),
-    os.path.join(script_dir, '..', 'datasets', '3-kemerer.arff'),
-    os.path.join(script_dir, '..', 'datasets', '4-kitchenham.arff')
+    os.path.join(script_dir, "..", "datasets", "1-china.arff"),
+    os.path.join(script_dir, "..", "datasets", "3-kemerer.arff"),
+    os.path.join(script_dir, "..", "datasets", "4-kitchenham.arff"),
 ]
 
 # List of the different column names to select for each dataset
 columns_to_select = [
-    ['AFP', 'Duration', 'Effort'],  # china dataset
-    ['AdjFP', 'Duration', 'EffortMM'],  # kemerer dataset
-    ['Adjusted.function.points', 'Actual.duration', 'Actual.effort']  # kitchenham dataset
+    ["AFP", "Duration", "Effort"],  # china dataset
+    ["AdjFP", "Duration", "EffortMM"],  # kemerer dataset
+    [
+        "Adjusted.function.points",
+        "Actual.duration",
+        "Actual.effort",
+    ],  # kitchenham dataset
 ]
 
 # New column names that will be the same for all datasets after selection
-new_column_names = ['AFP', 'Duration', 'Effort']
+new_column_names = ["AFP", "Duration", "Effort"]
 
 # List to store the DataFrames
 dfs = []
@@ -57,7 +61,7 @@ for file_path, col_names in zip(file_paths, columns_to_select):
 final_df = pd.concat(dfs, ignore_index=True)
 
 # Create the path for the output CSV
-output_path = os.path.join(script_dir, '..', 'datasets', '5-unified_dataset.csv')
+output_path = os.path.join(script_dir, "..", "datasets", "5-unified_dataset.csv")
 
 # Ensure the directory exists
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
