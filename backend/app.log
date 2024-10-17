@@ -1,0 +1,8 @@
+2024-10-16 22:59:42,365 - INFO - Request: GET http://0.0.0.0:8080/docs
+2024-10-16 22:59:42,366 - INFO - Response status: 200
+2024-10-16 22:59:42,436 - INFO - Request: GET http://0.0.0.0:8080/openapi.json
+2024-10-16 22:59:42,441 - INFO - Response status: 200
+2024-10-16 22:59:46,145 - INFO - Request: POST http://0.0.0.0:8080/predict
+2024-10-16 22:59:46,792 - INFO - Response status: 200
+2024-10-17 10:38:47,646 - INFO - Request: GET http://0.0.0.0:8080/data
+2024-10-17 10:38:47,651 - INFO - Response status: 200
