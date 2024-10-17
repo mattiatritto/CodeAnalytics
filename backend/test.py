@@ -10,6 +10,8 @@ def test_data():
     assert response.headers["content-type"] == "text/csv; charset=utf-8"
 
 
+
+
 def test_predict():
     input_data = {
         "ilf_count": 5,
