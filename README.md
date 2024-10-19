@@ -98,6 +98,28 @@ To deploy the server on Google Cloud Platform, follow these steps:
    ```
 
 
+## Software Architecture Overview
+
+1. **Frontend (Streamlit)**
+   - Users interact with the application through a web interface built using Streamlit.
+   - The frontend sends requests to the backend to process data or obtain predictions from the Machine Learning model.
+
+2. **Backend (FastAPI)**
+   - The backend is built using FastAPI, which handles requests from the frontend.
+   - It interacts with the Machine Learning model to make predictions.
+   - The backend provides various endpoints for functionalities such as sending data for training and receiving results.
+
+3. **Machine Learning Model**
+   - The ML model can be loaded directly in the backend or run as a dedicated service.
+   - It manages the logic for making predictions, training, and validating data.
+
+4. **Containerization (Docker)**
+   - Both the backend and the Machine Learning model are containerized using Docker.
+   - This ensures that the application runs consistently across different environments.
+
+5. **Cloud Deployment**
+   - The application is deployed in the cloud using services like AWS, Google Cloud, or Azure.
+   - Optionally, a container orchestrator such as Kubernetes can be used to manage deployment and scaling.
 
 
 

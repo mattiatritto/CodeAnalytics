@@ -5,6 +5,7 @@ from fastapi.responses import FileResponse
 from fastapi.exception_handlers import HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from models.models import InputModel
+
 from models.utils import predict_duration_and_costs
 
 app = FastAPI()
