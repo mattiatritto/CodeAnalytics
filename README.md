@@ -115,11 +115,3 @@ To deploy the server on Google Cloud Platform, follow these steps:
 
 4. **Cloud Deployment**
    - The application is deployed in the cloud using services like Google Cloud Platform.
-
-
-
-   
-   
-
-
-   
