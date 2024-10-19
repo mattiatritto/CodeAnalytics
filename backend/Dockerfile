@@ -16,5 +16,5 @@ EXPOSE 8080
 # Run the application
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
 
-# sudo docker build -t software_cost_estimator .
-# docker run -d -p 8080:8080 --name software_cost_estimator software_cost_estimator
+# sudo docker build -t codeAnalytics .
+# docker run -d -p 8080:8080 --name codeAnalytics codeAnalytics
