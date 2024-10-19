@@ -32,7 +32,7 @@ To set up the project on your local machine, follow these steps:
    docker run -d -p 8080:8080 --name CodeAnalytics CodeAnalytics
    ```
 
-## Server execution on Google Cloud Platform
+## Server deployment on Google Cloud Platform
 
 To deploy the server on Google Cloud Platform, follow these steps:
 
@@ -107,19 +107,14 @@ To deploy the server on Google Cloud Platform, follow these steps:
 2. **Backend (FastAPI)**
    - The backend is built using FastAPI, which handles requests from the frontend.
    - It interacts with the Machine Learning model to make predictions.
-   - The backend provides various endpoints for functionalities such as sending data for training and receiving results.
+   - The backend provides various endpoints for functionalities such as sending data for predictions and receiving past data in order to make analytics.
 
-3. **Machine Learning Model**
-   - The ML model can be loaded directly in the backend or run as a dedicated service.
-   - It manages the logic for making predictions, training, and validating data.
-
-4. **Containerization (Docker)**
-   - Both the backend and the Machine Learning model are containerized using Docker.
+3. **Containerization (Docker)**
+   - The backend is containerized using Docker.
    - This ensures that the application runs consistently across different environments.
 
-5. **Cloud Deployment**
-   - The application is deployed in the cloud using services like AWS, Google Cloud, or Azure.
-   - Optionally, a container orchestrator such as Kubernetes can be used to manage deployment and scaling.
+4. **Cloud Deployment**
+   - The application is deployed in the cloud using services like Google Cloud Platform.
 
 
 
