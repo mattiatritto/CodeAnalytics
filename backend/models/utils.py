@@ -29,7 +29,7 @@ def predict_duration_and_costs(inputs: InputModel):
     afp = calculate_afp(inputs)
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    model_file_path = os.path.join(BASE_DIR, "best_random_forest_model.pkl")
+    model_file_path = os.path.join(BASE_DIR, "trained_model.pkl")
 
     loaded_model = joblib.load(model_file_path)
 
