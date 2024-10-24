@@ -11,12 +11,18 @@ from .models import AFPModel, InputModel
 
 def calculate_afp(input_data: AFPModel) -> float:
 
+    ilf_weight = 7
+    eif_weight = 6
+    ei_weight = 5
+    eo_weight = 8
+    eq_weight = 7
+
     ufp = (
-        input_data.ilf_count * input_data.ilf_weight
-        + input_data.eif_count * input_data.eif_weight
-        + input_data.ei_count * input_data.ei_weight
-        + input_data.eo_count * input_data.eo_weight
-        + input_data.eq_count * input_data.eq_weight
+        input_data.ilf_count * ilf_weight
+        + input_data.eif_count * eif_weight
+        + input_data.ei_count * ei_weight
+        + input_data.eo_count * eo_weight
+        + input_data.eq_count * eq_weight
     )
 
     tcf = sum(input_data.gsc_values)

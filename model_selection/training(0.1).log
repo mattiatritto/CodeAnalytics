@@ -1,0 +1,420 @@
+[0]: Testing Random State [0]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.04
+  Test RMSE: 4.00
+  Test R^2 Score: 0.06
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 13.54
+  Test RMSE: 3.68
+  Test R^2 Score: 0.21
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 2.04
+  Test RMSE: 1.43
+  Test R^2 Score: 0.88
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 0.27
+  Test RMSE: 0.52
+  Test R^2 Score: 0.98
+[0]: Testing Random State [1]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 13.38
+  Test RMSE: 3.66
+  Test R^2 Score: 0.22
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 13.80
+  Test RMSE: 3.71
+  Test R^2 Score: 0.20
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 3.36
+  Test RMSE: 1.83
+  Test R^2 Score: 0.80
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.68
+  Test RMSE: 1.92
+  Test R^2 Score: 0.79
+[0]: Testing Random State [2]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 15.82
+  Test RMSE: 3.98
+  Test R^2 Score: 0.16
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 15.10
+  Test RMSE: 3.89
+  Test R^2 Score: 0.20
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 110}
+  Test MSE: 2.96
+  Test RMSE: 1.72
+  Test R^2 Score: 0.84
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (32, 64, 32), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.14
+  Test RMSE: 1.77
+  Test R^2 Score: 0.83
+[0]: Testing Random State [3]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.33
+  Test RMSE: 4.04
+  Test R^2 Score: 0.07
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 14.65
+  Test RMSE: 3.83
+  Test R^2 Score: 0.16
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 5.33
+  Test RMSE: 2.31
+  Test R^2 Score: 0.70
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 2.85
+  Test RMSE: 1.69
+  Test R^2 Score: 0.84
+[0]: Testing Random State [4]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 17.92
+  Test RMSE: 4.23
+  Test R^2 Score: 0.11
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 17.51
+  Test RMSE: 4.18
+  Test R^2 Score: 0.14
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 7.88
+  Test RMSE: 2.81
+  Test R^2 Score: 0.61
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 10.36
+  Test RMSE: 3.22
+  Test R^2 Score: 0.49
+[0]: Testing Random State [5]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 22.55
+  Test RMSE: 4.75
+  Test R^2 Score: 0.09
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 23.48
+  Test RMSE: 4.85
+  Test R^2 Score: 0.06
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 110}
+  Test MSE: 5.65
+  Test RMSE: 2.38
+  Test R^2 Score: 0.77
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 11.24
+  Test RMSE: 3.35
+  Test R^2 Score: 0.55
+[0]: Testing Random State [6]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.58
+  Test RMSE: 4.07
+  Test R^2 Score: 0.21
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 18.08
+  Test RMSE: 4.25
+  Test R^2 Score: 0.14
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 3.36
+  Test RMSE: 1.83
+  Test R^2 Score: 0.84
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (32, 64, 32), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.12
+  Test RMSE: 1.77
+  Test R^2 Score: 0.85
+[0]: Testing Random State [7]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.00
+  Test RMSE: 4.00
+  Test R^2 Score: 0.16
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 16.09
+  Test RMSE: 4.01
+  Test R^2 Score: 0.15
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 120}
+  Test MSE: 2.68
+  Test RMSE: 1.64
+  Test R^2 Score: 0.86
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 0.88
+  Test RMSE: 0.94
+  Test R^2 Score: 0.95
+[0]: Testing Random State [8]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.29
+  Test RMSE: 4.04
+  Test R^2 Score: 0.22
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 17.25
+  Test RMSE: 4.15
+  Test R^2 Score: 0.17
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 4.86
+  Test RMSE: 2.20
+  Test R^2 Score: 0.77
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.82
+  Test RMSE: 1.96
+  Test R^2 Score: 0.82
+[0]: Testing Random State [9]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 15.80
+  Test RMSE: 3.98
+  Test R^2 Score: 0.30
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 17.56
+  Test RMSE: 4.19
+  Test R^2 Score: 0.23
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 4.73
+  Test RMSE: 2.17
+  Test R^2 Score: 0.79
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 4.95
+  Test RMSE: 2.22
+  Test R^2 Score: 0.78
+[0]: Testing Random State [10]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 18.67
+  Test RMSE: 4.32
+  Test R^2 Score: 0.18
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 20.04
+  Test RMSE: 4.48
+  Test R^2 Score: 0.12
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 3.10
+  Test RMSE: 1.76
+  Test R^2 Score: 0.86
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 5.62
+  Test RMSE: 2.37
+  Test R^2 Score: 0.75
+[0]: Testing Random State [11]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 15.41
+  Test RMSE: 3.93
+  Test R^2 Score: 0.15
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 14.26
+  Test RMSE: 3.78
+  Test R^2 Score: 0.21
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 120}
+  Test MSE: 5.60
+  Test RMSE: 2.37
+  Test R^2 Score: 0.69
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.90
+  Test RMSE: 1.98
+  Test R^2 Score: 0.78
+[0]: Testing Random State [12]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.14
+  Test RMSE: 4.02
+  Test R^2 Score: 0.13
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 15.72
+  Test RMSE: 3.97
+  Test R^2 Score: 0.15
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 2.91
+  Test RMSE: 1.70
+  Test R^2 Score: 0.84
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.21
+  Test RMSE: 1.79
+  Test R^2 Score: 0.83
+[0]: Testing Random State [13]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 15.83
+  Test RMSE: 3.98
+  Test R^2 Score: 0.19
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 16.84
+  Test RMSE: 4.10
+  Test R^2 Score: 0.14
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 2.40
+  Test RMSE: 1.55
+  Test R^2 Score: 0.88
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (32, 64, 32), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 0.61
+  Test RMSE: 0.78
+  Test R^2 Score: 0.97
+[0]: Testing Random State [14]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 15.29
+  Test RMSE: 3.91
+  Test R^2 Score: 0.21
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 15.45
+  Test RMSE: 3.93
+  Test R^2 Score: 0.20
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 4.05
+  Test RMSE: 2.01
+  Test R^2 Score: 0.79
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 4.06
+  Test RMSE: 2.01
+  Test R^2 Score: 0.79
+[0]: Testing Random State [15]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 19.13
+  Test RMSE: 4.37
+  Test R^2 Score: 0.21
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 20.22
+  Test RMSE: 4.50
+  Test R^2 Score: 0.17
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 4.32
+  Test RMSE: 2.08
+  Test R^2 Score: 0.82
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 4.99
+  Test RMSE: 2.23
+  Test R^2 Score: 0.79
+[0]: Testing Random State [16]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 15.92
+  Test RMSE: 3.99
+  Test R^2 Score: 0.19
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 15.93
+  Test RMSE: 3.99
+  Test R^2 Score: 0.19
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 2.55
+  Test RMSE: 1.60
+  Test R^2 Score: 0.87
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.0001, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 1.50
+  Test RMSE: 1.23
+  Test R^2 Score: 0.92
+[0]: Testing Random State [17]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 16.25
+  Test RMSE: 4.03
+  Test R^2 Score: 0.10
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 15.25
+  Test RMSE: 3.90
+  Test R^2 Score: 0.15
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 120}
+  Test MSE: 3.47
+  Test RMSE: 1.86
+  Test R^2 Score: 0.81
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.68
+  Test RMSE: 1.92
+  Test R^2 Score: 0.80
+[0]: Testing Random State [18]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 18.96
+  Test RMSE: 4.35
+  Test R^2 Score: 0.10
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.1, 'kernel': 'rbf'}
+  Test MSE: 16.93
+  Test RMSE: 4.11
+  Test R^2 Score: 0.20
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 110}
+  Test MSE: 4.78
+  Test RMSE: 2.19
+  Test R^2 Score: 0.77
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.38
+  Test RMSE: 1.84
+  Test R^2 Score: 0.84
+[0]: Testing Random State [19]...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 20.16
+  Test RMSE: 4.49
+  Test R^2 Score: 0.11
+[Support Vector Machine]:
+  Best Parameters: {'C': 0.1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 20.22
+  Test RMSE: 4.50
+  Test R^2 Score: 0.11
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 4.38
+  Test RMSE: 2.09
+  Test R^2 Score: 0.81
+[Neural Network]:
+  Best Parameters: {'activation': 'tanh', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.01, 'solver': 'adam'}
+  Test MSE: 3.39
+  Test RMSE: 1.84
+  Test R^2 Score: 0.85

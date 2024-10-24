@@ -17,11 +17,6 @@ def test_predict():
         "ei_count": 10,
         "eo_count": 7,
         "eq_count": 4,
-        "ilf_weight": 7,
-        "eif_weight": 6,
-        "ei_weight": 5,
-        "eo_weight": 8,
-        "eq_weight": 7,
         "gsc_values": [
             3,
             4,
