@@ -1,12 +1,15 @@
 import logging
+from io import BytesIO
+from datetime import datetime, timedelta
+
 import uvicorn
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.exception_handlers import HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from models.models import InputModel
-
 from models.utils import predict_duration_and_costs
+import requests as req
 
 app = FastAPI()
 
@@ -21,16 +24,6 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
@@ -47,6 +40,49 @@ async def predict(inputs: InputModel):
         return prediction
     except Exception as e:
         raise HTTPException(status_code=422, detail=str(e))
+
+
+
+
+@app.post("/report")
+async def report(inputs: InputModel):
+    try:
+        prediction = predict_duration_and_costs(inputs)
+    except Exception as e:
+        raise HTTPException(status_code=422, detail=str(e))
+
+    # Calculate the end date
+    duration_in_hours = prediction[0]
+    workdays = duration_in_hours / 8
+    end_date = inputs.start_date + timedelta(days=workdays)
+
+    data = {
+        "cost": str(prediction[1]),
+        "duration": str(duration_in_hours),
+        "afp": "AFP value",
+        "start_date": inputs.start_date.strftime("%Y-%m-%d"),
+        "end_date": end_date.strftime("%Y-%m-%d"),
+        "today_date": datetime.today().strftime("%Y-%m-%d"),
+        "ei": str(inputs.ei_count),
+        "eq": str(inputs.eq_count),
+        "eo": str(inputs.eo_count),
+        "ilf": str(inputs.eif_count),
+        "eif": str(inputs.eif_count),
+    }
+
+    url = "http://0.0.0.0:9000/generate_report/"
+    response = req.post(url, json=data)
+
+    if response.status_code == 200:
+        output = BytesIO(response.content)
+        output.seek(0)
+        return StreamingResponse(
+            output,
+            media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            headers={"Content-Disposition": "attachment; filename=generated_report.docx"}
+        )
+    else:
+        raise HTTPException(status_code=response.status_code, detail="Failed to generate report")
 
 
 @app.get("/data")
