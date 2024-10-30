@@ -6,24 +6,23 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.exception_handlers import HTTPException, Request
-from fastapi.middleware.cors import CORSMiddleware
-from models.models import InputModel
-from models.utils import predict_duration_and_costs
+from schemas.models import InputModel
+from backend.utils.utils import predict_duration_and_costs
 import requests as req
 
 app = FastAPI()
 
-# Enable CORS for all origins (adjust as needed)
 
 # Configure logging to a file
 logging.basicConfig(
-    filename="app.log",
+    filename="logs/app.log",
     filemode="a",  # Append mode
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
 
 logger = logging.getLogger(__name__)
+
 
 @app.middleware("http")
 async def log_requests(request: Request, call_next):
@@ -40,8 +39,6 @@ async def predict(inputs: InputModel):
         return prediction
     except Exception as e:
         raise HTTPException(status_code=422, detail=str(e))
-
-
 
 
 @app.post("/report")
@@ -79,16 +76,20 @@ async def report(inputs: InputModel):
         return StreamingResponse(
             output,
             media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-            headers={"Content-Disposition": "attachment; filename=generated_report.docx"}
+            headers={
+                "Content-Disposition": "attachment; filename=generated_report.docx"
+            },
         )
     else:
-        raise HTTPException(status_code=response.status_code, detail="Failed to generate report")
+        raise HTTPException(
+            status_code=response.status_code, detail="Failed to generate report"
+        )
 
 
 @app.get("/data")
 async def data():
     return FileResponse(
-        "./models/dataset.csv", media_type="text/csv", filename="data.csv"
+        "data/dataset.csv", media_type="text/csv", filename="data.csv"
     )
 
 

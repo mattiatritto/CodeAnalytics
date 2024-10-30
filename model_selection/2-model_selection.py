@@ -82,7 +82,10 @@ q3 = dataset[target_variable].quantile(0.75)
 iqr = q3 - q1
 lower_bound = q1 - 1.5 * iqr
 upper_bound = q3 + 1.5 * iqr
-dataset = dataset[(dataset[target_variable] >= lower_bound) & (dataset[target_variable] <= upper_bound)]
+dataset = dataset[
+    (dataset[target_variable] >= lower_bound)
+    & (dataset[target_variable] <= upper_bound)
+]
 
 
 print(f"[3]: Selecting the features and the target variable...")
@@ -94,7 +97,7 @@ print(f"[4]: Shuffling rows...")
 X, y = shuffle(X, y, random_state=random_state)
 
 
-print(f'[5]: Splitting dataset into training and testing...')
+print(f"[5]: Splitting dataset into training and testing...")
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=test_size, random_state=random_state
 )
@@ -109,10 +112,7 @@ X_test_scaled = scaler.transform(X_test)
 print(f"[7]: Save median and scale, in order to make predictions in the future...")
 median = scaler.center_
 scale = scaler.scale_
-scaling_info = {
-    "median": median.tolist(),
-    "scale": scale.tolist()
-}
+scaling_info = {"median": median.tolist(), "scale": scale.tolist()}
 with open("normalization_parameters.json", "w") as json_file:
     json.dump(scaling_info, json_file)
 
@@ -126,7 +126,9 @@ r2_scores_grid = {}
 
 for model_name, model_info in models_params.items():
 
-    grid_search = GridSearchCV(model_info["name"], model_info["params"], cv=k_folds, scoring=scoring)
+    grid_search = GridSearchCV(
+        model_info["name"], model_info["params"], cv=k_folds, scoring=scoring
+    )
     grid_search.fit(X_train_scaled, y_train)
     best_model = grid_search.best_estimator_
     y_pred = best_model.predict(X_test_scaled)

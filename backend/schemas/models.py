@@ -12,7 +12,6 @@ class AFPModel(BaseModel):
 
     # GSC values must be exactly 14 values, each between 0 and 5 (inclusive)
     gsc_values: conlist(conint(ge=0, le=5), min_length=14, max_length=14)
-
     start_date: date
 
 

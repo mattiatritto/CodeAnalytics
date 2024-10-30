@@ -6,7 +6,7 @@ import os
 
 import pandas
 
-from .models import AFPModel, InputModel
+from backend.schemas.models import AFPModel, InputModel
 
 
 def calculate_afp(input_data: AFPModel) -> float:
@@ -35,7 +35,7 @@ def predict_duration_and_costs(inputs: InputModel):
     afp = calculate_afp(inputs)
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    model_file_path = os.path.join(BASE_DIR, "trained-model.pkl")
+    model_file_path = os.path.join(BASE_DIR, "../ml_model/trained-model.pkl")
 
     loaded_model = joblib.load(model_file_path)
 
@@ -54,7 +54,7 @@ def predict_duration_and_costs(inputs: InputModel):
     )
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    normalization_file_path = os.path.join(BASE_DIR, "normalization_parameters.json")
+    normalization_file_path = os.path.join(BASE_DIR, "../ml_model/normalization_parameters.json")
 
     with open(normalization_file_path, "r") as json_file:
         normalization_parameters = json.load(json_file)
