@@ -7,7 +7,6 @@ from schemas.ReportData import ReportData
 app = FastAPI()
 
 
-
 @app.post("/generate_report/")
 async def generate_report(report_data: ReportData):
     doc = DocxTemplate("report_template/template.docx")
@@ -37,7 +36,7 @@ async def generate_report(report_data: ReportData):
     )
 
 
-
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=9000)

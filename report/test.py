@@ -17,11 +17,17 @@ def test_generate_report():
         "eq": "5",
         "eo": "7",
         "ilf": "10",
-        "eif": "8"
+        "eif": "8",
     }
 
     response = client.post("/generate_report/", json=report_data)
     assert response.status_code == 200
-    assert response.headers["content-type"] == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    assert (
+        response.headers["content-type"]
+        == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    )
     assert "Content-Disposition" in response.headers
-    assert response.headers["Content-Disposition"] == "attachment; filename=generated_report.docx"
+    assert (
+        response.headers["Content-Disposition"]
+        == "attachment; filename=generated_report.docx"
+    )

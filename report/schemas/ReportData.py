@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from datetime import date
 
+
 class ReportData(BaseModel):
     cost: str
     duration: str

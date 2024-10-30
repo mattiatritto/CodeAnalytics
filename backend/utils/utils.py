@@ -54,7 +54,9 @@ def predict_duration_and_costs(inputs: InputModel):
     )
 
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    normalization_file_path = os.path.join(BASE_DIR, "../ml_model/normalization_parameters.json")
+    normalization_file_path = os.path.join(
+        BASE_DIR, "../ml_model/normalization_parameters.json"
+    )
 
     with open(normalization_file_path, "r") as json_file:
         normalization_parameters = json.load(json_file)

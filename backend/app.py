@@ -88,9 +88,7 @@ async def report(inputs: InputModel):
 
 @app.get("/data")
 async def data():
-    return FileResponse(
-        "data/dataset.csv", media_type="text/csv", filename="data.csv"
-    )
+    return FileResponse("data/dataset.csv", media_type="text/csv", filename="data.csv")
 
 
 if __name__ == "__main__":
