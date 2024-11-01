@@ -1,16 +1,18 @@
 import logging
 from io import BytesIO
 from datetime import datetime, timedelta
-
+import os
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.exception_handlers import HTTPException, Request
 from schemas.models import InputModel
-from backend.utils.utils import predict_duration_and_costs
+from utils.utils import predict_duration_and_costs
 import requests as req
 
 app = FastAPI()
+
+url = os.getenv("REPORT_SERVICE_URL", "http://0.0.0.0:8001/generate_report/")
 
 
 # Configure logging to a file
@@ -67,7 +69,6 @@ async def report(inputs: InputModel):
         "eif": str(inputs.eif_count),
     }
 
-    url = "http://0.0.0.0:9000/generate_report/"
     response = req.post(url, json=data)
 
     if response.status_code == 200:
@@ -92,4 +93,4 @@ async def data():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

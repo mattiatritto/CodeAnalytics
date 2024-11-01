@@ -3,10 +3,7 @@ import numpy as np
 import pandas
 import joblib
 import os
-
-import pandas
-
-from backend.schemas.models import AFPModel, InputModel
+from schemas.models import AFPModel, InputModel
 
 
 def calculate_afp(input_data: AFPModel) -> float:
