@@ -18,8 +18,7 @@ features = [
     "Output",
     "Enquiry",
     "File",
-    "Interface",
-    "Duration",
+    "Interface"
 ]
 dataset = dataset[features].copy()
 

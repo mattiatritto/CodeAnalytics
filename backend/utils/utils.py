@@ -3,6 +3,7 @@ import numpy as np
 import pandas
 import joblib
 import os
+from sklearn.ensemble import RandomForestRegressor
 from schemas.models import AFPModel, InputModel
 
 
@@ -40,7 +41,6 @@ def predict_duration_and_costs(inputs: InputModel):
         [
             [
                 afp,
-                float(inputs.effort),
                 float(inputs.ei_count),
                 float(inputs.eo_count),
                 float(inputs.eq_count),

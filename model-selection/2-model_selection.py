@@ -22,33 +22,33 @@ sys.stdout = f
 
 # Parameters that can be modified
 dataset_file_path = os.path.abspath("datasets/1-china-augmented.csv")
-features = ["AFP", "Input", "Output", "Enquiry", "File", "Interface", "Effort"]
-target_variable = "Duration"
+features = ["AFP", "Input", "Output", "Enquiry", "File", "Interface"]
+target_variable = "Effort"
 test_size = 0.1
 k_folds = 5
 scoring = "r2"
-random_state = 7
+random_state = 39
 
 
 models_params = {
     "Linear Regression with L2 regularization": {
         "name": Ridge(),
-        "params": {"alpha": [10, 100.0]},
+        "params": {"alpha": [10, 100.0, 1000]},
     },
     "Support Vector Machine": {
         "name": SVR(),
         "params": {
-            "C": [0.01, 0.1],
-            "epsilon": [0.1, 0.5],
+            "C": [1, 0.1, 0.01],
+            "epsilon": [0.5, 1, 10],
             "kernel": ["rbf"],
         },
     },
     "Random Forest": {
         "name": RandomForestRegressor(random_state=random_state),
         "params": {
-            "n_estimators": [110, 120, 130],
-            "max_depth": [10, 20],
-            "min_samples_split": [2, 5],
+            "n_estimators": [110, 120, 130, 140],
+            "max_depth": [10, 20, None],
+            "min_samples_split": [2, 5, 7, 10],
             "min_samples_leaf": [1, 2, 5],
         },
     },
@@ -63,14 +63,13 @@ models_params = {
                 (64, 32, 64),
                 (64, 32, 16, 32, 64),
             ],
-            "activation": ["tanh", "relu"],
+            "activation": ["relu", "tanh"],
             "solver": ["adam"],
-            "alpha": [0.0001, 0.01],
-            "learning_rate_init": [0.01, 0.1],
+            "alpha": [0.01],
+            "learning_rate_init": [0.1],
         },
     },
 }
-
 
 print(f"[1]: Loading the augmented dataset...")
 dataset = pd.read_csv(dataset_file_path)
@@ -116,8 +115,6 @@ scaling_info = {"median": median.tolist(), "scale": scale.tolist()}
 with open("normalization_parameters.json", "w") as json_file:
     json.dump(scaling_info, json_file)
 
-print("Median and IQR saved to scaling_info.json")
-
 
 print(f"[8]: Searching for the best model with a Grid Search...")
 results = {}
@@ -151,7 +148,7 @@ for model_name, model_info in models_params.items():
 
 
 # Retrieve the best parameters from the best model
-best_params = results["Neural Network"]["best_params"]
-final_model = MLPRegressor(**best_params, random_state=random_state)
+best_params = results["Random Forest"]["best_params"]
+final_model = RandomForestRegressor(**best_params, random_state=random_state)
 final_model.fit(X_train_scaled, y_train)
 joblib.dump(final_model, "trained-model.pkl")
