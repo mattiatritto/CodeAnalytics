@@ -18,7 +18,7 @@ if "page" not in st.session_state:
     st.session_state.page = "home"
 
 
-st.sidebar.image("images/logo.png", use_column_width=True)
+st.sidebar.image("./frontend/images/logo.png", use_column_width=True)
 if st.sidebar.button("🏠︎ Home", key="home"):
     st.session_state.page = "home"
 
