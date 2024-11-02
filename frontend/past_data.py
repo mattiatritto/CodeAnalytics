@@ -106,25 +106,4 @@ def display_past_data():
     )
     st.plotly_chart(fig)
 
-    # Histogram of Duration
-
-    st.markdown('<div class="sub-section">Duration</div>', unsafe_allow_html=True)
-    fig = px.histogram(
-        df,
-        x="Duration",
-        nbins=10,
-        title="Distribution of Duration",
-        color_discrete_sequence=["#00A3E0"],
-        template="plotly_white",
-    )
-    fig.update_layout(
-        title_font=dict(size=16, color="#00A3E0", family="Arial, sans-serif"),
-        xaxis_title="Effort (hours)",
-        yaxis_title="Frequency",
-        xaxis=dict(titlefont=dict(size=12, color="#00A3E0")),
-        yaxis=dict(titlefont=dict(size=12, color="#00A3E0")),
-        plot_bgcolor="rgba(0, 0, 0, 0)",
-        showlegend=False,
-    )
-    st.plotly_chart(fig)
     st.markdown("<hr class='gradient-line'>", unsafe_allow_html=True)

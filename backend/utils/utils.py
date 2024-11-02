@@ -64,6 +64,6 @@ def predict_duration_and_costs(inputs: InputModel):
 
     duration = loaded_model.predict(input_array)
     duration = round(abs(duration[0]))
-    costs = round(duration * inputs.hourly_pay * inputs.effort, 2)
+    costs = round(duration * inputs.hourly_pay, 2)
 
     return duration, costs, afp
