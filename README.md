@@ -1,9 +1,11 @@
 # CodeAnalytics
 
-CodeAnalytics is an AI-powered tool designed to estimate the duration and costs of software projects based on various input parameters. Leveraging machine learning models, the software provides accurate predictions using Adjusted Function Points (AFP) methodology. This approach helps project managers and developers gain insights into resource planning and budgeting, allowing for more effective and efficient project execution.
 <p align="center">
   <img src="frontend/images/CodeAnalytics.png" alt="CodeAnalytics logo" width="600">
 </p>
+
+CodeAnalytics is an AI-powered tool designed to estimate the duration and costs of software projects based on various input parameters. Leveraging machine learning models, the software provides accurate predictions using Adjusted Function Points (AFP) methodology. This approach helps project managers and developers gain insights into resource planning and budgeting, allowing for more effective and efficient project execution.
+
 
 
 ## Server execution on local machine
