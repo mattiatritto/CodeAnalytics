@@ -187,8 +187,6 @@ def display_predictive_analysis():
                 result = response.json()
                 predicted_duration, predicted_cost, afp = result
 
-                st.write("Calculating your estimates...")
-
                 col1, col2, col3 = st.columns(3)
                 col1.metric(label="Cost", value=f"€{predicted_cost:.2f}")
                 col2.metric(label="Duration", value=f"{predicted_duration} hours")
