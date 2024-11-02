@@ -4,9 +4,12 @@
   <img src="frontend/images/CodeAnalytics.png" alt="CodeAnalytics logo" width="600">
 </p>
 
+
+
+
 CodeAnalytics is an AI-powered tool designed to estimate the duration and costs of software projects based on various input parameters. Leveraging machine learning models, the software provides accurate predictions using Adjusted Function Points (AFP) methodology. This approach helps project managers and developers gain insights into resource planning and budgeting, allowing for more effective and efficient project execution.
 
-
+For interacting with CodeAnalytics, follow this [link](https://codeanalytics.streamlit.app/).
 
 ## Server deployment on Google Cloud Platform
 
@@ -116,7 +119,7 @@ For more information on connecting your repository, refer to the [Streamlit depl
    - It interacts with the Machine Learning model to make predictions.
    - The backend provides various endpoints for functionalities such as sending data for predictions, retrieving past data for analytics, and generating reports.
 
-3. **Report Service (Private, Non-Public)**
+3. **Report Service (Private, Non-Public) (FastAPI)**
    - The report service is a separate component within the same private network as the backend.
    - This service is not exposed to the public and communicates only with the backend.
    - It generates reports based on various parameters of the software.
