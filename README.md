@@ -79,17 +79,17 @@ To deploy the server on Google Cloud Platform, follow these steps:
    Set your project as the active one by running:
 
    ```
-   gcloud config set project CodeAnalytics
+   gcloud config set project codeanalytics
    ```
 
 6. **Create an Artifact Registry**:
    Create a new Docker repository in the Artifact Registry to store your Docker images:
 
    ```
-   gcloud artifacts repositories create CodeAnalytics \
+   gcloud artifacts repositories create report-service \
     --repository-format=docker \
     --location=us-central1 \
-    --description="CodeAnalytics backend"
+    --description="CodeAnalytics report-service"
    ```
 
 6. **Build and submit the Docker image**: 

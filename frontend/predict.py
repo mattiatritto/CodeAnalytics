@@ -6,7 +6,7 @@ import plotly.express as px
 import requests
 
 input_data = ""
-endpoint = "http://codeanalytics-backend:8000"
+endpoint = "https://codeanalytics-backend-image-771804227712.us-central1.run.app"
 
 
 def display_predictive_analysis():

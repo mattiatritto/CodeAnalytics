@@ -12,7 +12,7 @@ import requests as req
 
 app = FastAPI()
 
-url = os.getenv("REPORT_SERVICE_URL", "http://0.0.0.0:8001/generate_report/")
+url = os.getenv("REPORT_SERVICE_URL", "https://report-service-image-771804227712.us-central1.run.app/generate_report/")
 
 
 # Configure logging to a file
@@ -93,4 +93,4 @@ async def data():
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
