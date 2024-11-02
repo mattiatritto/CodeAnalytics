@@ -150,16 +150,22 @@ For more information on connecting your repository, refer to the [Streamlit depl
 
 1. **Frontend (Streamlit)**
    - Users interact with the application through a web interface built using Streamlit.
-   - The frontend sends requests to the backend to process data or obtain predictions from the Machine Learning model.
+   - The frontend (hosted on Streamlit Public Cloud) sends requests to the backend (hosted on Google Cloud Platform) to generate reports or obtain predictions from the Machine Learning model.
 
-2. **Backend (FastAPI)**
+2. **Backend Service (Exposed to the Public) (FastAPI)**
    - The backend is built using FastAPI, which handles requests from the frontend.
    - It interacts with the Machine Learning model to make predictions.
-   - The backend provides various endpoints for functionalities such as sending data for predictions and receiving past data in order to make analytics.
+   - The backend provides various endpoints for functionalities such as sending data for predictions, retrieving past data for analytics, and generating reports.
 
-3. **Containerization (Docker)**
-   - The backend is containerized using Docker.
-   - This ensures that the application runs consistently across different environments.
+3. **Report Service (Private, Non-Public)**
+   - The report service is a separate component within the same private network as the backend.
+   - This service is not exposed to the public and communicates only with the backend.
+   - It generates reports based on various parameters of the software.
 
-4. **Cloud Deployment**
-   - The application is deployed in the cloud using services like Google Cloud Platform.
+4. **Containerization (Docker)**
+   - The backend, the report service and the Streamlit frontend are containerized using Docker.
+   - Containerization ensures consistent application behavior across different environments.
+
+5. **Cloud Deployment**
+   - The entire application is deployed in the cloud using services like Google Cloud Platform (GCP) and Streamlit Public Cloud.
+   - This setup allows for scalability, reliability, and secure access to both the public-facing backend and the internal report service.
