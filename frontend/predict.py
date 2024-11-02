@@ -150,7 +150,6 @@ def display_predictive_analysis():
         submitted = st.form_submit_button("🚀 Submit")
 
         if submitted:
-            st.write("Calculating your estimates...")
 
             gsc_values = [
                 influence_mapping[data_communication],
@@ -181,6 +180,8 @@ def display_predictive_analysis():
                 "num_people": num_people,
             }
 
+            st.write("Calculating your estimates...")
+
             response = requests.post(endpoint + "/predict", json=input_data)
             if response.status_code == 200:
                 result = response.json()
@@ -190,33 +191,35 @@ def display_predictive_analysis():
                 col1.metric(label="Cost", value=f"€{predicted_cost:.2f}")
                 col2.metric(label="Duration", value=f"{predicted_duration} hours")
                 col3.metric(
-                    label="AFP",
-                    value=f"{afp:.2f}",
-                    help="Adjusted Function Points",
+                    label="AFP", value=f"{afp:.2f}", help="Adjusted Function Points"
                 )
 
-                end_date = starting + datetime.timedelta(hours=predicted_duration)
-                st.write(f"**Estimated End Date:** {end_date.strftime('%Y-%m-%d')}")
+                st.write(f"**Start Date:** {starting}")
 
+                # Animated progress bar for project duration
                 progress = st.progress(0)
                 for i in range(1, 101):
                     progress.progress(i)
                     time.sleep(0.02)
+                end_date = starting + datetime.timedelta(hours=predicted_duration)
+                st.write(f"**Estimated End Date:** {end_date.strftime('%Y-%m-%d')}")
 
-                # Timeline Plot
+                # Create a DataFrame to represent the timeline
                 timeline_data = pd.DataFrame(
                     {
                         "Date": [starting, end_date],
                         "Progress": ["Start", "End"],
                     }
                 )
+
+                # Plot
                 fig = px.line(timeline_data, x="Date", y="Progress", markers=True)
                 fig.update_yaxes(range=[-0.5, 1.5])
-                st.plotly_chart(fig, key="timeline_plot")
+                st.plotly_chart(fig)
 
-                report_response = requests.post(
-                    endpoint + "/report", json=input_data
-                )
+                st.success("✅ Analysis complete!")
+
+                report_response = requests.post(endpoint + "/report", json=input_data)
                 if report_response.status_code == 200:
                     docx_file = report_response.content
                     st.session_state.report_generated = True
