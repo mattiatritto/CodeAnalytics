@@ -53,16 +53,16 @@ def display_past_data():
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown(
-            f'<div class="low">Low: €{low_value:.2f}</div>', unsafe_allow_html=True
+            f'<div class="low">Low: {low_value:.2f}</div>', unsafe_allow_html=True
         )
     with col2:
         st.markdown(
-            f'<div class="average">Average: €{average_value:.2f}</div>',
+            f'<div class="average">Average: {average_value:.2f}</div>',
             unsafe_allow_html=True,
         )
     with col3:
         st.markdown(
-            f'<div class="high">High: €{high_value:.2f}</div>', unsafe_allow_html=True
+            f'<div class="high">High: {high_value:.2f}</div>', unsafe_allow_html=True
         )
     st.markdown("</div>", unsafe_allow_html=True)
 

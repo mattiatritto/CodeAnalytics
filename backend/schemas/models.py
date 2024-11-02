@@ -17,4 +17,4 @@ class AFPModel(BaseModel):
 
 class InputModel(AFPModel):
     hourly_pay: conint(ge=0)
-    effort: conint(ge=0)
+    num_people: conint(ge=0)

@@ -178,7 +178,7 @@ def display_predictive_analysis():
                 "gsc_values": gsc_values,
                 "start_date": str(starting),
                 "hourly_pay": hourly_wage,
-                "effort": num_people,
+                "num_people": num_people,
             }
 
             response = requests.post(endpoint + "/predict", json=input_data)
