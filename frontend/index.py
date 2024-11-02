@@ -4,6 +4,8 @@ from home import display_home
 from predict import display_predictive_analysis
 from past_data import display_past_data
 
+st.set_page_config(page_title="CodeAnalytics", layout="centered")
+
 
 def load_css(file_path):
     with open(file_path) as f:
