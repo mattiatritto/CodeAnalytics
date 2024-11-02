@@ -12,7 +12,7 @@ def load_css(file_path):
 
 #css_path = pathlib.Path("./style/styles.css")
 css_path = "./style/styles.css"
-load_css(css_path)
+# load_css(css_path)
 
 
 if "page" not in st.session_state:
