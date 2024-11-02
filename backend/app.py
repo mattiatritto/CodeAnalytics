@@ -58,7 +58,7 @@ async def report(inputs: InputModel):
     data = {
         "cost": str(prediction[1]),
         "duration": str(duration_in_hours),
-        "afp": "AFP value",
+        "afp": str(prediction[2]),
         "start_date": inputs.start_date.strftime("%Y-%m-%d"),
         "end_date": end_date.strftime("%Y-%m-%d"),
         "today_date": datetime.today().strftime("%Y-%m-%d"),

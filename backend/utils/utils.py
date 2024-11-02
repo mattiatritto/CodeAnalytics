@@ -8,11 +8,11 @@ from schemas.models import AFPModel, InputModel
 
 def calculate_afp(input_data: AFPModel) -> float:
 
-    ilf_weight = 7
-    eif_weight = 6
-    ei_weight = 5
-    eo_weight = 8
-    eq_weight = 7
+    ilf_weight = 10
+    eif_weight = 7
+    ei_weight = 4
+    eo_weight = 5
+    eq_weight = 4
 
     ufp = (
         input_data.ilf_count * ilf_weight
@@ -24,7 +24,7 @@ def calculate_afp(input_data: AFPModel) -> float:
 
     tcf = sum(input_data.gsc_values)
     afp = ufp * (0.65 + 0.01 * tcf)
-    return afp
+    return round(afp)
 
 
 def predict_duration_and_costs(inputs: InputModel):
@@ -41,10 +41,10 @@ def predict_duration_and_costs(inputs: InputModel):
             [
                 afp,
                 float(inputs.effort),
-                float(inputs.ilf_count),
                 float(inputs.ei_count),
                 float(inputs.eo_count),
                 float(inputs.eq_count),
+                float(inputs.ilf_count),
                 float(inputs.eif_count),
             ]
         ]
@@ -54,16 +54,16 @@ def predict_duration_and_costs(inputs: InputModel):
     normalization_file_path = os.path.join(
         BASE_DIR, "../ml_model/normalization_parameters.json"
     )
-
+    
     with open(normalization_file_path, "r") as json_file:
         normalization_parameters = json.load(json_file)
 
     median = np.array(normalization_parameters["median"])
     scale = np.array(normalization_parameters["scale"])
-
     input_array = (input_array - median) / scale
 
     duration = loaded_model.predict(input_array)
-    costs = duration[0] * inputs.hourly_pay
+    duration = round(abs(duration[0]))
+    costs = round(duration * inputs.hourly_pay * inputs.effort, 2)
 
-    return duration[0], costs
+    return duration, costs, afp
