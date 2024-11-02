@@ -8,53 +8,6 @@ CodeAnalytics is an AI-powered tool designed to estimate the duration and costs 
 
 
 
-## Server execution on local machine
-
-To set up the project on your local machine, follow these steps:
-
-1. **Clone the repository**:
-
-   ```
-   git clone https://github.com/mattiatritto/CodeAnalytics.git
-   ```
-   
-   
-2. **Navigate to the report service directory**:
-
-   ```
-   cd CodeAnalytics/report
-   ```
-
-3. **Build the report service Docker image**:
-
-   ```
-   sudo docker build -t report-service .
-   ```
-
-4. **Run the report service Docker container**:
-
-   ```
-   docker run -d -p 9000:9000 --name report-service report-service
-   ```
-   
-5. **Navigate to the backend service directory**:
-
-   ```
-   cd CodeAnalytics/backend
-   ```
-
-6. **Build the backend service Docker image**:
-
-   ```
-   sudo docker build -t CodeAnalytics .
-   ```
-
-7. **Run the report service Docker container**: After building the Docker image, you can run the project by executing the following command:
-
-   ```
-   docker run -d -p 8080:8080 --name CodeAnalytics CodeAnalytics
-   ```
-
 ## Server deployment on Google Cloud Platform
 
 To deploy the server on Google Cloud Platform, follow these steps:
