@@ -187,37 +187,47 @@ def display_predictive_analysis():
                 result = response.json()
                 predicted_duration, predicted_cost, afp = result
 
-                col1, col2, col3 = st.columns(3)
-                col1.metric(label="Cost", value=f"€{predicted_cost:.2f}")
-                col2.metric(label="Duration", value=f"{predicted_duration} hours")
-                col3.metric(
-                    label="AFP", value=f"{afp:.2f}", help="Adjusted Function Points"
-                )
+                # Submit button
+                submitted = st.form_submit_button("🚀 Submit")
+                if submitted:
+                    st.write("Calculating your estimates...")
+                    predicted_cost, predicted_duration, predicted_afp = predict(
+                        hourly_wage, num_people
+                    )
 
-                st.write(f"**Start Date:** {starting}")
+                    col1, col2, col3 = st.columns(3)
+                    col1.metric(label="Cost", value=f"€{predicted_cost:.2f}")
+                    col2.metric(label="Duration", value=f"{predicted_duration} hours")
+                    col3.metric(
+                        label="AFP",
+                        value=f"{predicted_afp:.2f}",
+                        help="Adjusted Function Points",
+                    )
 
-                # Animated progress bar for project duration
-                progress = st.progress(0)
-                for i in range(1, 101):
-                    progress.progress(i)
-                    time.sleep(0.02)
-                end_date = starting + datetime.timedelta(hours=predicted_duration)
-                st.write(f"**Estimated End Date:** {end_date.strftime('%Y-%m-%d')}")
+                    st.write(f"**Start Date:** {starting}")
 
-                # Create a DataFrame to represent the timeline
-                timeline_data = pd.DataFrame(
-                    {
-                        "Date": [starting, end_date],
-                        "Progress": ["Start", "End"],
-                    }
-                )
+                    # Animated progress bar for project duration
+                    progress = st.progress(0)
+                    for i in range(1, 101):
+                        progress.progress(i)
+                        time.sleep(0.02)
+                    end_date = starting + datetime.timedelta(hours=predicted_duration)
+                    st.write(f"**Estimated End Date:** {end_date.strftime('%Y-%m-%d')}")
 
-                # Plot
-                fig = px.line(timeline_data, x="Date", y="Progress", markers=True)
-                fig.update_yaxes(range=[-0.5, 1.5])
-                st.plotly_chart(fig)
+                    # Create a DataFrame to represent the timeline
+                    timeline_data = pd.DataFrame(
+                        {
+                            "Date": [starting, end_date],
+                            "Progress": ["Start", "End"],
+                        }
+                    )
 
-                st.success("✅ Analysis complete!")
+                    # Plot
+                    fig = px.line(timeline_data, x="Date", y="Progress", markers=True)
+                    fig.update_yaxes(range=[-0.5, 1.5])
+                    st.plotly_chart(fig)
+
+                    st.success("✅ Analysis complete!")
 
                 report_response = requests.post(endpoint + "/report", json=input_data)
                 if report_response.status_code == 200:
