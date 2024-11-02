@@ -113,27 +113,27 @@ To deploy the server on Google Cloud Platform, follow these steps:
 10. **Create a new Artifact Registry**:
    Create a new Docker repository in the Artifact Registry to store the codeanalytics-backend docker image:
 
-   ```
-   gcloud artifacts repositories create codeanalytics-backend \
-    --repository-format=docker \
-    --location=us-central1 \
-    --description="CodeAnalytics backend"
-   ```
+      ```
+      gcloud artifacts repositories create codeanalytics-backend \
+       --repository-format=docker \
+       --location=us-central1 \
+       --description="CodeAnalytics backend"
+      ```
 
 11. **Build and submit the Docker image**: 
    Use Cloud Build to build and submit your codeanalytics-backend image to the Artifact Registry:
 
-   ```
-   gcloud builds submit --region=us-central1 \
-   --tag us-central1-docker.pkg.dev/codeanalytics/codeanalytics-backend/codeanalytics-backend-image:tag1
-   ```
+      ```
+      gcloud builds submit --region=us-central1 \
+      --tag us-central1-docker.pkg.dev/codeanalytics/codeanalytics-backend/codeanalytics-backend-image:tag1
+      ```
    
 12. **Deploy the Docker image to Cloud Run**: 
    Deploy the Docker image to Cloud Run, which will host the codeanalytics-backend:
-
-   ```
-   gcloud run deploy --image=us-central1-docker.pkg.dev/codeanalytics/codeanalytics-backend/codeanalytics-backend-image:tag1
-   ```
+   
+      ```
+      gcloud run deploy --image=us-central1-docker.pkg.dev/codeanalytics/codeanalytics-backend/codeanalytics-backend-image:tag1
+      ```
 
 13. **Verify the deployment**: 
    Once deployed, you can check if the service is running by accessing the URL provided by GCP.
