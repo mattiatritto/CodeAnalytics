@@ -143,7 +143,7 @@ To deploy the server on Google Cloud Platform, follow these steps:
 
 The frontend of this project is hosted on [Streamlit Cloud Public](https://streamlit.io/cloud). To deploy it, simply connect to your personal Streamlit profile and link the GitHub repository containing the frontend code written in Streamlit. This setup allows users to access the application directly from their browser, eliminating the need for local setup.
 
-For more information on connecting your repository, refer to the [Streamlit deployment guide](https://docs.streamlit.io/streamlit-cloud/get-started/deploy-your-app).
+For more information on connecting your repository, refer to the [Streamlit deployment guide](https://docs.streamlit.io/deploy).
 
 
 ## Software Architecture Overview
