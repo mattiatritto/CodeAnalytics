@@ -4,6 +4,22 @@ from home import display_home
 from predict import display_predictive_analysis
 from past_data import display_past_data
 
+# Inject CSS and meta tags
+st.markdown(
+    """
+    <style>
+    /* Body color overrides */
+    body {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    </style>
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#ffffff">
+    """,
+    unsafe_allow_html=True,
+)
+
 
 def load_css(file_path):
     with open(file_path) as f:
