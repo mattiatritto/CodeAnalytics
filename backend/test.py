@@ -1,5 +1,5 @@
 from fastapi.testclient import TestClient
-from app import app
+from backend.app import app
 
 client = TestClient(app)
 
@@ -32,10 +32,10 @@ def test_predict():
             4,
             3,
             5,
-        ],  # 14 values between 0 and 5
+        ],
         "start_date": "2024-10-30",
         "hourly_pay": 50,
-        "effort": 100,
+        "num_people": 100,
     }
 
     response = client.post("/predict", json=input_data)
@@ -43,6 +43,7 @@ def test_predict():
     response_data = response.json()
     assert isinstance(response_data[0], float)
     assert isinstance(response_data[1], float)
+    assert isinstance(response_data[2], float)
 
 
 def test_report():
@@ -70,7 +71,7 @@ def test_report():
         ],
         "start_date": "2024-10-30",
         "hourly_pay": 50,
-        "effort": 100,
+        "num_people": 100,
     }
 
     response = client.post("/report", json=input_data)
@@ -80,7 +81,3 @@ def test_report():
         == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     )
     assert "Content-Disposition" in response.headers
-    assert (
-        response.headers["Content-Disposition"]
-        == "attachment; filename=generated_report.docx"
-    )

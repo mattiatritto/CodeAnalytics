@@ -11,15 +11,7 @@ dataset = pd.DataFrame(data)
 
 
 print("[2]: Taking only features of interest...")
-features = [
-    "AFP",
-    "Effort",
-    "Input",
-    "Output",
-    "Enquiry",
-    "File",
-    "Interface"
-]
+features = ["AFP", "Effort", "Input", "Output", "Enquiry", "File", "Interface"]
 dataset = dataset[features].copy()
 
 

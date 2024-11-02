@@ -12,10 +12,12 @@ import requests as req
 
 app = FastAPI()
 
-url = os.getenv("REPORT_SERVICE_URL", "https://report-service-image-771804227712.us-central1.run.app/generate_report/")
+url = os.getenv(
+    "REPORT_SERVICE_URL",
+    "https://report-service-image-771804227712.us-central1.run.app/generate_report/",
+)
 
 
-# Configure logging to a file
 logging.basicConfig(
     filename="logs/app.log",
     filemode="a",  # Append mode
@@ -50,7 +52,6 @@ async def report(inputs: InputModel):
     except Exception as e:
         raise HTTPException(status_code=422, detail=str(e))
 
-    # Calculate the end date
     duration_in_hours = prediction[0]
     workdays = duration_in_hours / 8
     end_date = inputs.start_date + timedelta(days=workdays)
