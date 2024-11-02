@@ -1,3 +1,29 @@
+/* Force light mode variables */
+:root {
+    --primary-color: #1f77b4;
+    --background-color: #ffffff;
+    --secondary-background-color: #f0f2f6;
+    --text-color: #000000;
+    --font: "sans-serif";
+}
+
+/* Background and text colors */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Sidebar background */
+.css-1d391kg {
+    background-color: var(--secondary-background-color);
+}
+
+/* Hide the theme toggle button */
+[data-testid="stThemeToggle"] {
+    display: none !important;
+}
+
+
 [data-testid="stSidebar"] {
     background-color: #B2FFFF;
 }
