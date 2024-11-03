@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import sys
 import joblib
+import matplotlib.pyplot as plt
 
 from sklearn.linear_model import Ridge
 from sklearn.svm import SVR
@@ -43,6 +44,7 @@ models_params = {
             "kernel": ["rbf"],
         },
     },
+
     "Random Forest": {
         "name": RandomForestRegressor(random_state=random_state),
         "params": {
@@ -52,6 +54,7 @@ models_params = {
             "min_samples_leaf": [1, 2, 5],
         },
     },
+
     "Neural Network": {
         "name": MLPRegressor(max_iter=15000, random_state=random_state),
         "params": {
@@ -152,3 +155,13 @@ best_params = results["Random Forest"]["best_params"]
 final_model = RandomForestRegressor(**best_params, random_state=random_state)
 final_model.fit(X_train_scaled, y_train)
 joblib.dump(final_model, "trained-model.pkl")
+
+
+importances = final_model.feature_importances_
+feature_names = X.columns
+
+plt.figure(figsize=(10, 6))
+plt.barh(feature_names, importances, color="skyblue")
+plt.xlabel("Feature Importance Score")
+plt.title("Feature Importance in Random Forest Model")
+plt.show()
