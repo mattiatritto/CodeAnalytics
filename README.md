@@ -9,9 +9,9 @@
 
 CodeAnalytics is an AI-powered tool designed to estimate the duration and costs of software projects based on various input parameters. Leveraging machine learning models, the software provides accurate predictions using Adjusted Function Points (AFP) methodology. This approach helps project managers and developers gain insights into resource planning and budgeting, allowing for more effective and efficient project execution.
 
-For interacting with CodeAnalytics, follow this [link](https://codeanalytics.streamlit.app/).
+For interacting with CodeAnalytics, follow this [link](https://frontend-service-image-771804227712.us-central1.run.app/).
 
-## Server deployment on Google Cloud Platform
+## Microservices deployment on Google Cloud Platform
 
 To deploy the server on Google Cloud Platform, follow these steps:
 
@@ -98,14 +98,37 @@ To deploy the server on Google Cloud Platform, follow these steps:
       ```
 
 13. **Verify the deployment**: 
-   Once deployed, you can check if the service is running by accessing the URL provided by GCP.
+      Once deployed, you can check if the service is running by accessing the URL provided by GCP.
 
 
-## Frontend deployment provided by Streamlit Public Cloud
+14. **Create a new Artifact Registry**:
+      Create a new Docker repository in the Artifact Registry to store the codeanalytics-frontend docker image:
 
-The frontend of this project is hosted on [Streamlit Cloud Public](https://streamlit.io/cloud). To deploy it, simply connect to your personal Streamlit profile and link the GitHub repository containing the frontend code written in Streamlit. This setup allows users to access the application directly from their browser, eliminating the need for local setup.
+      ```
+      gcloud artifacts repositories create frontend-service \
+       --repository-format=docker \
+       --location=us-central1 \
+       --description="CodeAnalytics frontend-service"
+      ```
 
-For more information on connecting your repository, refer to the [Streamlit deployment guide](https://docs.streamlit.io/deploy).
+15. **Build and submit the Docker image**: 
+      Use Cloud Build to build and submit your codeanalytics-frontend image to the Artifact Registry:
+
+      ```
+      gcloud builds submit --region=us-central1 \
+      --tag us-central1-docker.pkg.dev/codeanalytics/frontend-service/frontend-service-image:tag1
+      ```
+
+16. **Deploy the Docker image to Cloud Run**: 
+      Deploy the Docker image to Cloud Run, which will host the codeanalytics-frontend:
+   
+      ```
+      gcloud run deploy --image=us-central1-docker.pkg.dev/codeanalytics/frontend-service/frontend-service-image:tag1
+      ```
+
+17. **Verify the deployment**: 
+      Once deployed, you can check if the service is running by accessing the URL provided by GCP.
+    
 
 
 ## Software Architecture Overview

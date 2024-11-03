@@ -4,29 +4,13 @@ from home import display_home
 from predict import display_predictive_analysis
 from past_data import display_past_data
 
-# Inject CSS and meta tags
-st.markdown(
-    """
-    <style>
-    /* Body color overrides */
-    body {
-        background-color: #ffffff;
-        color: #000000;
-    }
-    </style>
-    <meta name="color-scheme" content="light">
-    <meta name="theme-color" content="#ffffff">
-    """,
-    unsafe_allow_html=True,
-)
-
 
 def load_css(file_path):
     with open(file_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 
-css_path = pathlib.Path("./frontend/style/styles.css")
+css_path = pathlib.Path("./style/styles.css")
 load_css(css_path)
 
 
@@ -34,7 +18,7 @@ if "page" not in st.session_state:
     st.session_state.page = "home"
 
 
-st.sidebar.image("./frontend/images/logo.png", use_column_width=True)
+st.sidebar.image("./images/logo.png", use_column_width=True)
 if st.sidebar.button("🏠︎ Home", key="home"):
     st.session_state.page = "home"
 

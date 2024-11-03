@@ -2,7 +2,7 @@ import streamlit as st
 
 
 def display_home():
-    image_path = "./frontend/images/CodeAnalytics.png"
+    image_path = "./images/CodeAnalytics.png"
     st.image(image_path, use_column_width=True)
 
     st.markdown(
