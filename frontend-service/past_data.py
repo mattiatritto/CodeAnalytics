@@ -4,7 +4,8 @@ import plotly.express as px
 import requests
 from io import StringIO
 
-endpoint = "https://codeanalytics-backend-image-771804227712.us-central1.run.app"
+# endpoint = "https://codeanalytics-backend-image-771804227712.us-central1.run.app"
+endpoint = "http://codeanalytics-backend:8080"
 
 
 def display_past_data():
@@ -22,6 +23,10 @@ def display_past_data():
     except requests.RequestException as e:
         st.error(f"An error occurred while fetching the dataset: {e}")
         return
+
+    df = df.rename(columns={'Effort': 'Duration'})
+
+    print(df)
 
     st.markdown(
         '<div class="main-section">Data Highlights</div>', unsafe_allow_html=True
@@ -43,38 +48,38 @@ def display_past_data():
     st.markdown(html_table, unsafe_allow_html=True)
 
     # Compute low, average and high effort
-    low_value = df["Effort"].min()
-    average_value = df["Effort"].mean()
-    high_value = df["Effort"].max()
+    low_value = df["Duration"].min()
+    average_value = df["Duration"].mean()
+    high_value = df["Duration"].max()
     st.markdown(
-        '<div class="sub-section">Effort Overview</div>', unsafe_allow_html=True
+        '<div class="sub-section">Duration Overview</div>', unsafe_allow_html=True
     )
     st.markdown('<div class="highlight-section">', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown(
-            f'<div class="low">Low: {low_value:.2f}</div>', unsafe_allow_html=True
+            f'<div class="low">Low: {low_value:.0f} h</div>', unsafe_allow_html=True
         )
     with col2:
         st.markdown(
-            f'<div class="average">Average: {average_value:.2f}</div>',
+            f'<div class="average">Average: {average_value:.0f} h</div>',
             unsafe_allow_html=True,
         )
     with col3:
         st.markdown(
-            f'<div class="high">High: {high_value:.2f}</div>', unsafe_allow_html=True
+            f'<div class="high">High: {high_value:.0f} h</div>', unsafe_allow_html=True
         )
     st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown('<div class="main-section">Graphs</div>', unsafe_allow_html=True)
 
-    # Pair Plot of AFP, Effor and Duration
+    # Pair Plot of AFP and Duration
 
     fig = px.scatter_matrix(
         df,
-        dimensions=["AFP", "Effort", "Duration"],
+        dimensions=["AFP", "Duration"],
         color_discrete_sequence=["#00A3E0"],
-        title="Pairplot of AFP, Effort, and Duration",
+        title="Pairplot of AFP and Duration",
     )
     fig.update_traces(diagonal_visible=True)
     fig.update_layout(
@@ -84,20 +89,45 @@ def display_past_data():
     )
     st.plotly_chart(fig)
 
-    # Histogram of Effort
+    # Histogram of Duration
 
-    st.markdown('<div class="sub-section">Effort</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-section">Duration</div>', unsafe_allow_html=True)
     fig = px.histogram(
         df,
-        x="Effort",
+        x="Duration",
         nbins=10,
-        title="Distribution of Effort",
+        title="Distribution of Duration",
         color_discrete_sequence=["#00A3E0"],
         template="plotly_white",
     )
     fig.update_layout(
         title_font=dict(size=16, color="#00A3E0", family="Arial, sans-serif"),
-        xaxis_title="Effort (hours)",
+        xaxis_title="Duration (hours)",
+        yaxis_title="Frequency",
+        xaxis=dict(titlefont=dict(size=12, color="#00A3E0")),
+        yaxis=dict(titlefont=dict(size=12, color="#00A3E0")),
+        plot_bgcolor="rgba(0, 0, 0, 0)",
+        showlegend=False,
+    )
+    st.plotly_chart(fig)
+
+    st.markdown("<hr class='gradient-line'>", unsafe_allow_html=True)
+
+
+    # Histogram of AFP
+
+    st.markdown('<div class="sub-section">Adjusted Function Points</div>', unsafe_allow_html=True)
+    fig = px.histogram(
+        df,
+        x="AFP",
+        nbins=10,
+        title="Distribution of AFP",
+        color_discrete_sequence=["#00A3E0"],
+        template="plotly_white",
+    )
+    fig.update_layout(
+        title_font=dict(size=16, color="#00A3E0", family="Arial, sans-serif"),
+        xaxis_title="AFP (Adjusted Function Points)",
         yaxis_title="Frequency",
         xaxis=dict(titlefont=dict(size=12, color="#00A3E0")),
         yaxis=dict(titlefont=dict(size=12, color="#00A3E0")),

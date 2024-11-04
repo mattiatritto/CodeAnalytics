@@ -12,10 +12,19 @@ import requests as req
 
 app = FastAPI()
 
+
+"""
 url = os.getenv(
     "REPORT_SERVICE_URL",
     "https://report-service-image-771804227712.us-central1.run.app/generate_report/",
 )
+"""
+
+url = os.getenv(
+    "REPORT_SERVICE_URL",
+    "http://report-service:8081/generate_report/",
+)
+
 
 
 logging.basicConfig(
@@ -66,7 +75,7 @@ async def report(inputs: InputModel):
         "ei": str(inputs.ei_count),
         "eq": str(inputs.eq_count),
         "eo": str(inputs.eo_count),
-        "ilf": str(inputs.eif_count),
+        "ilf": str(inputs.ilf_count),
         "eif": str(inputs.eif_count),
     }
 

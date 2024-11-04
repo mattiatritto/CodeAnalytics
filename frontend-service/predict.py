@@ -6,12 +6,14 @@ import plotly.express as px
 import requests
 
 input_data = ""
-endpoint = "https://codeanalytics-backend-image-771804227712.us-central1.run.app"
-
+#endpoint = "https://codeanalytics-backend-image-771804227712.us-central1.run.app"
+endpoint = "http://codeanalytics-backend:8080"
 
 def display_predictive_analysis():
-    st.title("📝 Predictive Analysis")
-    st.write("Fill the form:")
+    st.markdown(
+        "<h1 style='color:#00A3E0;'>📝 Predictive Analysis</h1>", unsafe_allow_html=True
+    )
+
     with st.form("estimation_form"):
         EI = st.number_input(
             "📥 External Inputs",
@@ -203,7 +205,7 @@ def display_predictive_analysis():
                 for i in range(1, 101):
                     progress.progress(i)
                     time.sleep(0.02)
-                end_date = starting + datetime.timedelta(hours=predicted_duration)
+                end_date = starting + datetime.timedelta(days=predicted_duration/8)
                 st.write(f"**Estimated End Date:** {end_date.strftime('%Y-%m-%d')}")
 
                 # Create a DataFrame to represent the timeline
