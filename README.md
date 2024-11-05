@@ -1,7 +1,7 @@
 # CodeAnalytics
 
 <p align="center">
-  <img src="frontend/images/CodeAnalytics.png" alt="CodeAnalytics logo" width="600">
+  <img src="frontend-service/images/CodeAnalytics.png" alt="CodeAnalytics logo" width="600">
 </p>
 
 
@@ -132,6 +132,12 @@ To deploy the server on Google Cloud Platform, follow these steps:
 
 
 ## Software Architecture Overview
+
+
+<p align="center">
+  <img src="softwareArchitecture.png" alt="CodeAnalytics software architecture" width="600">
+</p>
+
 
 1. **Frontend (Streamlit)**
    - Users interact with the application through a web interface built using Streamlit.
