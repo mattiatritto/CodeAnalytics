@@ -1,0 +1,10 @@
+2024-11-04 12:30:04,323 - INFO - Request: GET http://0.0.0.0:8080/
+2024-11-04 12:30:04,327 - INFO - Response status: 404
+2024-11-04 12:30:04,611 - INFO - Request: GET http://0.0.0.0:8080/favicon.ico
+2024-11-04 12:30:04,613 - INFO - Response status: 404
+2024-11-04 12:30:10,020 - INFO - Request: GET http://0.0.0.0:8080/docs
+2024-11-04 12:30:10,021 - INFO - Response status: 200
+2024-11-04 12:30:10,695 - INFO - Request: GET http://0.0.0.0:8080/openapi.json
+2024-11-04 12:30:10,700 - INFO - Response status: 200
+2024-11-04 12:30:15,070 - INFO - Request: POST http://0.0.0.0:8080/report
+2024-11-04 12:30:15,360 - INFO - Response status: 200

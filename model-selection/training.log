@@ -1,0 +1,28 @@
+[1]: Loading the augmented dataset...
+[2]: Removing outliers with IQR method...
+[3]: Selecting the features and the target variable...
+[4]: Shuffling rows...
+[5]: Splitting dataset into training and testing...
+[6]: Scale magnitude of each feature, using median and IQR range...
+[7]: Save median and scale, in order to make predictions in the future...
+[8]: Searching for the best model with a Grid Search...
+[Linear Regression with L2 regularization]:
+  Best Parameters: {'alpha': 10}
+  Test MSE: 3004216.32
+  Test RMSE: 1733.27
+  Test R^2 Score: 0.21
+[Support Vector Machine]:
+  Best Parameters: {'C': 1, 'epsilon': 0.5, 'kernel': 'rbf'}
+  Test MSE: 4372954.41
+  Test RMSE: 2091.16
+  Test R^2 Score: 0.15
+[Random Forest]:
+  Best Parameters: {'max_depth': 20, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 130}
+  Test MSE: 414774.87
+  Test RMSE: 644.03
+  Test R^2 Score: 0.89
+[Neural Network]:
+  Best Parameters: {'activation': 'relu', 'alpha': 0.01, 'hidden_layer_sizes': (64, 128, 64), 'learning_rate_init': 0.1, 'solver': 'adam'}
+  Test MSE: 2558901.99
+  Test RMSE: 1599.66
+  Test R^2 Score: 0.32
